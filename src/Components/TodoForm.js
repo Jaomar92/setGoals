@@ -10,13 +10,15 @@ function TodoForm(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (goal.trim().length === 0) {
+      return;
+    }
     const newGoal = {
       goal: goal,
     };
     props.onSaveData(newGoal);
     setGoal("");
   };
-
   return (
     <div>
       <h1>This is the To do form</h1>
